@@ -15,35 +15,35 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Commande {
-      @Id
-      @GeneratedValue(strategy=GenerationType.IDENTITY)
-      @Column(name="id_commande")
-	 private int id;
-     @Column
-	 private String numero;
-     @Column
-	 private Date dateCommande;
-     @Column
-	 private Date datePaiment;
-     @Column
-	 private Date dateLivraison;
-     
-     @ManyToOne
-     @JoinColumn(name="id_client")
-     private Client client;
-	
-     @OneToMany(mappedBy="commandeProduit_id.commande")
-     private List<Commande_Produit> quantites;
-	 
-     @ManyToOne
-     @JoinColumn(name="id_status")
-     private Status status;
-	 
-	    // Constructor
-	 public Commande() {
-			super();
-		}
-          // Getters and Setters
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_commande")
+	private int id;
+	@Column
+	private String numero;
+	@Column
+	private Date dateCommande;
+	@Column
+	private Date datePaiment;
+	@Column
+	private Date dateLivraison;
+
+	@ManyToOne
+	@JoinColumn(name = "id_client")
+	private Client client;
+
+	@OneToMany(mappedBy = "commandeProduit_id.commande")
+	private List<Commande_Produit> quantites;
+
+	@ManyToOne
+	@JoinColumn(name = "id_status")
+	private Status status;
+
+	// Constructor
+	public Commande() {
+		super();
+	}
+	// Getters and Setters
 
 	public int getId() {
 		return id;
@@ -108,6 +108,5 @@ public class Commande {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	 
-	
+
 }

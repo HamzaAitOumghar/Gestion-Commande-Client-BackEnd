@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Client {
     @Id
@@ -23,7 +25,9 @@ public class Client {
 	private String email;
     @Column
 	private String telephone;
+   
     @OneToMany(mappedBy="client")
+    @JsonIgnore
     private List<Commande> commandes;
 	
 	    // Constructor
